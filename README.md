@@ -18,11 +18,12 @@ Original README [here](https://github.com/Cartucho/mAP/blob/master/README.md)
 `<class_name> <confidence> <left> <top> <right> <bottom>`  
 
 - name list for categories  
-`
-a
-b
-c
-`
+```
+dog
+cat
+cow
+...
+```
 
 ### How to run via example input directry  
 
@@ -40,13 +41,14 @@ Put some files on top of mAP.
 `absolute paths of jpeg`  
 2. results of inference as json such as "coco_results.json".  
 3. name list for categories (id is not number but strings) such as "coco.names".  
-` aeroplane  dog  cat  ...  `
+`category_name`
 4. name list for ignored categories such as "coco.ignores"  
-` big_home  small_home  child  ...  `
+`category_name`
 
 e.g.  
-` $ ls`  
-` 2007_test.txt coco_results.json coco.names coco.ignores`  
+```
+$ ls
+2007_test.txt coco_results.json coco.names coco.ignores```  
 
 **To import GoundTruth files** put test images list such as "2007_test.txt" like VOC on top directory and,  
 
