@@ -33,11 +33,8 @@ see input/ and output/ directories.
 Put some file on top of mAP.
 1. test images list such as "2007_test.txt".  
 `absolute paths of jpeg`  
-
-2. results of inference as json such as "coco_results.json"  
-
-3. name list for categories (id is not number but strings) such as "coco.names"  
-
+2. results of inference as json such as "coco_results.json".  
+3. name list for categories (id is not number but strings) such as "coco.names".  
 `
 aeroplane  
 dog  
@@ -45,7 +42,6 @@ cat
 ...  
 `
 4. name list for ignored categories such as "coco.ignores"  
-
 `
 big_home  
 small_home  
