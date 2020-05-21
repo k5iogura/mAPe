@@ -1,6 +1,6 @@
 # mAP (mean Average Precision)
 
-Original README [here](https://github.com/Cartucho/mAP/README.md)  
+Original README [here](https://github.com/Cartucho/mAP/blob/master/README.md)  
 
 
 ### Input Formats  
