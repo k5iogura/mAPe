@@ -25,4 +25,17 @@ Original README [here](https://github.com/Cartucho/mAP/blob/master/README.md)
     or  
 ` $ python main.py -an  # with annimation`  
 
-see input/ and output/ directries.  
+see input/ and output/ directories.  
+
+### How to import darknet format into input directry  
+
+**To convert GoundTruth files** put test images list such as "2007_test.txt" on top directory and,  
+
+` $ convert_gt_yolo.sh 2007_test.txt`  
+see input/ground-truth and input/images directories.  
+
+**To convert Results of inferences for each images put json file such as "coco_results.json" on top directory and,  
+
+` $ convert_dr_yolo.sh coco_results.json`  
+see input/results-detection-results  
+
