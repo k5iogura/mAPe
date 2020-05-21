@@ -9,8 +9,8 @@ echo "reading" $test_list
 
 gt_dir="input/ground-truth"
 im_dir="input/images-optional"
-gtN=$(ls ${gt_dir}/*.txt|wc -l)
-imN=$(ls ${im_dir}/*.jpg|wc -l)
+gtN=$(ls ${gt_dir}/|wc -l)
+imN=$(ls ${im_dir}/|wc -l)
 echo $gtN files in $gt_dir
 echo $imN files in $im_dir
 
@@ -19,7 +19,6 @@ if [ $gtN -gt 0 ] || [ $imN -gt 0 ]; then
     exit
 fi
 
-exit
 if [ -d $gt_dir ] && [ -d $im_dir ]; then
     pushd $im_dir
     for i in $(cat ../../${test_list});do ln $i;done
