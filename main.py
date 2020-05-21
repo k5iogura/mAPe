@@ -12,7 +12,7 @@ import numpy as np
 MINOVERLAP = 0.5 # default value (defined in the PASCAL VOC2012 challenge)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-na', '--no-animation', help="no animation is shown.", action="store_true")
+parser.add_argument('-an', '--animation', help="no animation is shown.", action="store_true")
 parser.add_argument('-np', '--no-plot', help="no plot is shown.", action="store_true")
 parser.add_argument('-q', '--quiet', help="minimalistic console output.", action="store_true")
 # argparse receiving list of classes to be ignored (e.g., python main.py --ignore person book)
@@ -52,19 +52,17 @@ if os.path.exists(IMG_PATH):
     for dirpath, dirnames, files in os.walk(IMG_PATH):
         if not files:
             # no image files found
-            args.no_animation = True
-else:
-    args.no_animation = True
+            args.animation = False
 
 # try to import OpenCV if the user didn't choose the option --no-animation
 show_animation = False
-if not args.no_animation:
+if args.animation:
     try:
         import cv2
         show_animation = True
     except ImportError:
         print("\"opencv-python\" not found, please install to visualize the results.")
-        args.no_animation = True
+        args.animation = False
 
 # try to import Matplotlib if the user didn't choose the option --no-plot
 draw_plot = False
