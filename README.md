@@ -17,7 +17,12 @@ Original README [here](https://github.com/Cartucho/mAP/blob/master/README.md)
 
 `<class_name> <confidence> <left> <top> <right> <bottom>`  
 
-- names for inference  
+- name list for categories  
+`
+a
+b
+c
+`
 
 ### How to run via example input directry  
 
