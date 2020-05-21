@@ -40,8 +40,8 @@ Put some files on top of mAP.
 ` big_home  small_home  child  ...  `
 
 e.g.  
-` $ls
-  2007_test.txt coco_results.json coco.names coco.ignores`  
+` $ ls`
+` 2007_test.txt coco_results.json coco.names coco.ignores`  
 
 **To import GoundTruth files** put test images list such as "2007_test.txt" like VOC on top directory and,  
 
