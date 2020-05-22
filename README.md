@@ -63,7 +63,7 @@ Put some files on the top of mAPe directory.
   can get it by darknet detector valid command line with eval=coco keyword in coco.data file.  
   see result/ directory of darknet.  
 
-**To import required files**  
+**To import nessesary files**  
 
 ` $ ./convert_gt_yolo.sh 5k.txt`  
   see input/ground-truth and input/images directories.  
