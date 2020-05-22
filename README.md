@@ -43,6 +43,15 @@ ii.  import them into mAPe/input/ directory by some scripts
 iii. run main.py to get mAP estimation  
 iV.  run main.py with ignored_list.txt optionally  
 
+Various estimation cases.  
+
+|Case |Model|Test Img |Label to GT convert|Label to DR convert|Target                                     |
+|:-:  |:-   |:-       |:-                 |:-                 |:-                                         |
+|#1   |COCO |COCO     |COCO               |COCO               |COCO Model with COCO Categories estimation |
+|#2   |VOC  |VOC      |VOC                |VOC                |VOC  Model with VOC  Categories estimation |
+|#3   |COCO |VOC      |COCO               |COCO               |COCO Model with VOC  Categories estimation |
+|#4   |VOC  |COCO     |COCO               |VOC                |VOC  Model with COCO Categories estimation |
+
 ***Nessesary files to mAP estimation of COCO***  
 Put some files on the top of mAPe directory.  
 1. absolute path list of images used to infer.  
