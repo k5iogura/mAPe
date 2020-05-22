@@ -51,21 +51,16 @@ if [ $gtN -gt 0 ] || [ $imN -gt 0 ]; then
     echo please clean up to empty $gt_dir and $im_dir directries, bye; exit
 fi
 
+# import files into input/some directory
 if [ -d $gt_dir ] && [ -d $im_dir ]; then
     # Check existance and hard link images
     pushd $im_dir
-    echo checking images files ...
-    for i in $(cat ${im_list});do
-        if [ ! -e $i ];then
-            echo not found image file path $i; exit
-        fi
-    done
-    echo ln images...
+    echo ln images ...
     for i in $(cat ${im_list});do ln $i;done
     echo Completion ${im_dir} by ${im_list}
     popd && pushd $gt_dir
-    # Check existance and copy groundtruth
-    echo copy ground-truths
+    # copy groundtruth
+    echo copying ground-truths ...
     for i in $(cat ${gt_list});do cp $i . ;done
     echo Completion ${gt_dir} by ${gt_list}
     popd
