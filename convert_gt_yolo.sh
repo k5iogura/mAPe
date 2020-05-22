@@ -8,7 +8,7 @@ popd () {
 }
 # image files path list
 if [ $# -lt 1 ] || [ ! -e $1 ]; then
-    echo need image files list such as 5k.txt, bye;exit
+    echo Error!: need image files list such as 5k.txt, bye;exit
 elif [ $# -le 2 ]; then
     im_list=$(realpath $1)
 
@@ -24,7 +24,7 @@ if [ $# -le 1 ]; then
     echo > $gt_list
     for i in $(cat ${im_list}|sed -e ${sub1} -e ${sub2});do
         if [ ! -e $i ];then
-            echo not found GT file path $i
+            echo Error!: not found GT file path $i
             continue
         fi
         echo $i >> $gt_list
@@ -33,14 +33,14 @@ if [ $# -le 1 ]; then
     # for i in $(cat ${im_list}|sed -e ${sub1} -e ${sub2});do echo $i ;done > $gt_list
     echo done.
 elif [ ! -e $2 ]; then
-    echo not found $2;exit
+    echo Error!: not found $2;exit
 else
     gt_list=$(realpath $2)
 fi
 echo checking ground-truths ...
 for i in $(cat ${gt_list});do
     if [ ! -e $i ];then
-        echo not found GT file path $i; exit
+        echo Error!: not found GT file path $i; exit
     fi
 done
 
@@ -52,7 +52,7 @@ imN=$(ls ${im_dir}/|wc -l)
 echo $gtN files in $gt_dir
 echo $imN files in $im_dir
 if [ $gtN -gt 0 ] || [ $imN -gt 0 ]; then
-    echo please clean up to empty $gt_dir and $im_dir directries, bye; exit
+    echo Error!: please clean up to empty $gt_dir and $im_dir directries, bye; exit
 fi
 
 # import files into input/some directory
@@ -69,8 +69,21 @@ if [ -d $gt_dir ] && [ -d $im_dir ]; then
     echo Completion ${gt_dir} by ${gt_list}
     popd
 else
-    echo use setup_new.sh to make directories, bye
+    echo Error!: use setup_new.sh to make directories, bye
     exit
+fi
+
+echo check categories in GroundTruth and names list ...
+class_list='scripts/extra/class_list.txt'
+egrep '(. .)' $class_list
+if [ $? -eq 0 ];then
+    echo Error!: class name must consists of 1 word, please check $class_list, bye ; exit
+fi
+gt_classesN=$(awk '{print $1;}' ${gt_dir}/*.txt | sort -u | wc -l)
+nm_classesN=$(cat ${class_list} | wc -l)
+echo "${gt_classesN} classes in GroundTruth files and ${nm_classesN} classes in name list in ${class_list}"
+if [ $gt_classesN -gt $nm_classesN ]; then
+    echo "Error!: must be classes in GroundTruth files <= classes in name list, please check, bye";exit
 fi
 
 echo convertion category number to name strings
@@ -82,7 +95,6 @@ for i in ${classes};do echo $i ;done | column -c 80
 classN=$(for i in ${classes};do echo $i ;done | wc -l)
 echo ${classN} classes in GroundTruth files...
 
-class_file="scripts/extra/class_list.txt"
 if [ -e ${class_file} ];then
     import_classN=$(cat ${class_file}|wc -l)
     echo ${import_classN} classes in ${class_file}
@@ -90,3 +102,4 @@ if [ -e ${class_file} ];then
         echo Waring: mismatch classes gt and name list... please check!
     fi
 fi
+
