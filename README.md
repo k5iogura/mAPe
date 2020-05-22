@@ -53,7 +53,7 @@ Put some files on the top of mAPe directory.
 **image file path and GroundTruth file path must have a same basename to map**  
 E.g.  
 /somewhere/images/val2014/COCO_val2014_000000000164.jpg  
-/somewhere/GT/000000000164/gt.txt  
+/somewhere/GT/000000000164/COCO_val2014_000000000164.txt  
 Its can be mapped.  
 
 3. absolute path list of inference result files for each images written as `FmtDR`  
@@ -81,13 +81,16 @@ Import inference result files into input/detection-results/ directory.
 
 **Convert json file to `FmtDR` if need**  
 If result of inference is as json format convert it,  
-  results of inference as json such as "coco_results.json".  
-  can get it by darknet detector valid command line with eval=coco keyword in coco.data file.  
-  see result/ directory of darknet.  
+results of inference as json such as "coco_results.json".  
+can get it by darknet detector valid command line with eval=coco keyword in coco.data file.  
+see result/ directory of darknet.  
 
 ` $ ./json2dr.py coco_results.json`  
 
 ***Get mAP estimation***  
 Copy name list for estimation to scripts/exatra/class_list.txt
 ` $ python main.py`  
+**Hint:**  
+Category names used during estimation are collected infrom all GroundTruth files.  
+Categories included in result of inference files only will be ignored.  
 
