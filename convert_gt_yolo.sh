@@ -71,3 +71,18 @@ fi
 
 echo convertion category number to name strings
 python scripts/extra/convert_gt_yolo.py
+
+echo Searching Ground-Truth category names in ${gt_dir} ...
+classes=$(cat ${gt_dir}/*.txt | awk '{print $1;}' | sort -u)
+for i in ${classes};do echo $i ;done | column -c 80
+classN=$(for i in ${classes};do echo $i ;done | wc -l)
+echo ${classN} classes in GroundTruth files...
+
+class_file="scripts/extra/class_list.txt"
+if [ -e ${class_file} ];then
+    import_classN=$(cat ${class_file}|wc -l)
+    echo ${import_classN} classes in ${class_file}
+    if [ $classN -ne $import_classN ];then
+        echo Waring: mismatch classes gt and name list... please check!
+    fi
+fi

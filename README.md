@@ -67,9 +67,12 @@ Its can be mapped.
 
 ***Setup nessesary files into mAPe/input/ directory***  
 
+Copy coco name list file of inference to scripts/extra/class_list.txt  
+E.g.  
+` $ cp coco.names scripys/extra/class_list.txt`  
+
 Import image and GroundTruth files into input/ directory.  
 ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
-` $ python scripts/extra/convert_gt_yolo.py`  
   see input/ground-truth and input/images directories.  
 
 Import inference result files into input/detection-results/ directory.  
@@ -85,4 +88,6 @@ If result of inference is as json format convert it,
 ` $ ./json2dr.py coco_results.json`  
 
 ***Get mAP estimation***  
+Copy name list for estimation to scripts/exatra/class_list.txt
 ` $ python main.py`  
+

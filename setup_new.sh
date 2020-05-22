@@ -7,8 +7,5 @@ rm -fr input
 mkdir -p input/detection-results
 mkdir -p input/ground-truth
 mkdir -p input/images-optional
-if [ ! -e input/images ]; then
-    ln -s input/images-optional input/images
-fi
 
 ls -la input
