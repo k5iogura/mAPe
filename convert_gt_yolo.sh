@@ -95,9 +95,9 @@ for i in ${classes};do echo $i ;done | column -c 80
 classN=$(for i in ${classes};do echo $i ;done | wc -l)
 echo ${classN} classes in GroundTruth files...
 
-if [ -e ${class_file} ];then
-    import_classN=$(cat ${class_file}|wc -l)
-    echo ${import_classN} classes in ${class_file}
+if [ -e ${class_list} ];then
+    import_classN=$(cat ${class_list}|wc -l)
+    echo ${import_classN} classes in ${class_list}
     if [ $classN -ne $import_classN ];then
         echo Waring: mismatch classes gt and name list... please check!
     fi
