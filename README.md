@@ -50,7 +50,7 @@ Put some files on the top of mAPe directory.
 2. absolute path list of GroundTruth files for each images written as `FmtGT`  
    `absolute path list of text files` such as 'gt.txt'  
 
-**image file path and GroundTruth file path must have a same unique image id keyword to map**  
+**image file path and GroundTruth file path must have a same basename to map**  
 E.g.  
 /somewhere/images/val2014/COCO_val2014_000000000164.jpg  
 /somewhere/GT/000000000164/gt.txt  
@@ -69,6 +69,7 @@ Its can be mapped.
 
 Import image and GroundTruth files into input/ directory.  
 ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
+` $ python scripts/extra/convert_gt_yolo.py`  
   see input/ground-truth and input/images directories.  
 
 Import inference result files into input/detection-results/ directory.  
