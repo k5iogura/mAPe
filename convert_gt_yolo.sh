@@ -33,6 +33,12 @@ elif [ ! -e $2 ]; then
 else
     gt_list=$(realpath $2)
 fi
+echo checking ground-truths ...
+for i in $(cat ${gt_list});do
+    if [ ! -e $i ];then
+        echo not found GT file path $i; exit
+    fi
+done
 
 # make input/ directory
 gt_dir="input/ground-truth"
@@ -59,12 +65,6 @@ if [ -d $gt_dir ] && [ -d $im_dir ]; then
     echo Completion ${im_dir} by ${im_list}
     popd && pushd $gt_dir
     # Check existance and copy groundtruth
-    echo checking ground-truths ...
-    for i in $(cat ${gt_list});do
-        if [ ! -e $i ];then
-            echo not found GT file path $i; exit
-        fi
-    done
     echo copy ground-truths
     for i in $(cat ${gt_list});do cp $i . ;done
     echo Completion ${gt_dir} by ${gt_list}
