@@ -88,9 +88,15 @@ see result/ directory of darknet.
 ` $ ./json2dr.py coco_results.json`  
 
 ***Get mAP estimation***  
+**Overall**  
 Copy name list for estimation to scripts/exatra/class_list.txt
 ` $ python main.py`  
 **Hint:**  
 Category names used during estimation are collected infrom all GroundTruth files.  
 Categories included in result of inference files only will be ignored.  
+
+**Ignore unnessesary categories**  
+Using file as voc-coco.ignore including ignored categories,  
+` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
+So that this shows _mAP of inference with COCO images and estimation with VOC categories_.  
 

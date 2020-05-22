@@ -80,6 +80,7 @@ for tmp_file in txt_list:
       ## split a line by spaces.
       ## "c" stands for center and "n" stands for normalized
       obj_id, x_c_n, y_c_n, width_n, height_n = line.split()
+      assert int(obj_id)<len(obj_list)
       obj_name = obj_list[int(obj_id)]
       left, top, right, bottom = convert_yolo_coordinates_to_voc(x_c_n, y_c_n, width_n, height_n, img_width, img_height)
       ## add new line to file

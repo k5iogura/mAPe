@@ -15,18 +15,22 @@ elif [ $# -le 2 ]; then
 fi
 # ground-truth files path list
 sub1='s/JPEGImages/labels/'
+sub1='s/images/labels/'
 sub2='s/.jpg/.txt/'
 if [ $# -le 1 ]; then
     # mapping default pattern and checking
     gt_list=$(realpath $(echo $(dirname ${im_list})/gt_$(basename ${im_list})))
     echo checking $im_list ...
+    echo > $gt_list
     for i in $(cat ${im_list}|sed -e ${sub1} -e ${sub2});do
         if [ ! -e $i ];then
-            echo not found GT file path $i; exit
+            echo not found GT file path $i
+            continue
         fi
+        echo $i >> $gt_list
     done
     echo generating $gt_list ...
-    for i in $(cat ${im_list}|sed -e ${sub1} -e ${sub2});do echo $i ;done > $gt_list
+    # for i in $(cat ${im_list}|sed -e ${sub1} -e ${sub2});do echo $i ;done > $gt_list
     echo done.
 elif [ ! -e $2 ]; then
     echo not found $2;exit
