@@ -42,13 +42,19 @@ i.   prepare some list files for Images, GroundTruth, Inference results and cate
 ii.  import them into mAPe/input/ directory by some scripts  
 iii. run main.py to get mAP estimation  
 
-**Nessesary files to mAP estimation of COCO**  
+***Nessesary files to mAP estimation of COCO***  
 Put some files on the top of mAPe directory.  
 1. absolute path list of images used to infer.  
    `absolute path list of jpeg files` such as '5k.txt'  
 
 2. absolute path list of GroundTruth files for each images written as `FmtGT`  
    `absolute path list of text files` such as 'gt.txt'  
+
+**image file path and GroundTruth file path must have a same unique image id keyword to map**  
+E.g.  
+/somewhere/images/val2014/COCO_val2014_000000000164.jpg  
+/somewhere/GT/000000000164/gt.txt  
+Its can be mapped.  
 
 3. absolute path list of inference result files for each images written as `FmtDR`  
    `absolute path list of text files` sudch as 'dr.txt'  
@@ -59,7 +65,7 @@ Put some files on the top of mAPe directory.
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
 
-**Setup nessesary files into mAPe/input/ directory**  
+***Setup nessesary files into mAPe/input/ directory***  
 
 Import image and GroundTruth files into input/ directory.  
 ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
@@ -77,5 +83,5 @@ If result of inference is as json format convert it,
 
 ` $ ./json2dr.py coco_results.json`  
 
-**Get mAP estimation**  
+***Get mAP estimation***  
 ` $ python main.py`  
