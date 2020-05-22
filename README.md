@@ -47,7 +47,7 @@ Put some files on the top of mAPe directory.
 1. absolute path list of images used to infer.  
    `absolute path list of jpeg files` such as '5k.txt'  
 
-2. absolute path list of GroundTruth files written as `FmtGT`  
+2. absolute path list of GroundTruth files for each images written as `FmtGT`  
    `absolute path list of text files` such as 'gt.txt'  
 
 3. absolute path list of inference result files for each images written as `FmtDR`  
@@ -59,17 +59,22 @@ Put some files on the top of mAPe directory.
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
 
-2. results of inference as json such as "coco_results.json".  
+**To import nessesary files**  
+
+can import image and GroundTruth files into input/ directory.  
+` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
+  see input/ground-truth and input/images directories.  
+
+can import inference result files into input/detection-results/ directory.  
+` $ ./convert_dr_yolo.sh dr.txt`  
+  see input/detection-results directory.  
+
+**To convert json file to `FmtDR`**  
+If we got result of inference as json format we can convert it,  
+  results of inference as json such as "coco_results.json".  
   can get it by darknet detector valid command line with eval=coco keyword in coco.data file.  
   see result/ directory of darknet.  
 
-**To import nessesary files**  
+` $ ./json2dr.py coco_results.json`  
 
-` $ ./convert_gt_yolo.sh 5k.txt`  
-  see input/ground-truth and input/images directories.  
-
-**To import Results of inferences as json** for each images put json file such as "coco_results.json" on top directory and,  
-
-` $ ./convert_dr_yolo.sh coco_results.json`  
-  see input/results-detection-results directory.  
 
