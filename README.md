@@ -36,11 +36,12 @@ cow
 
 see input/ and output/ directories.  
 
-### To estimate darknet COCO models new input/ directory is imported  
+### How to estimate mAP of darknet COCO models  
 Rough flow of mAP estimation is,  
 i.   prepare some list files for Images, GroundTruth, Inference results and category names  
 ii.  import them into mAPe/input/ directory by some scripts  
 iii. run main.py to get mAP estimation  
+iV.  run main.py with ignored_list.txt optionally  
 
 ***Nessesary files to mAP estimation of COCO***  
 Put some files on the top of mAPe directory.  
