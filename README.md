@@ -36,11 +36,11 @@ cow
 
 see input/ and output/ directories.  
 
-### To estimate darknet COCO models create new input/ directory  
+### To estimate darknet COCO models new input/ directory is imported  
 Rough flow of mAP estimation is,  
 i.   prepare some list files for Images, GroundTruth, Inference results and category names  
-ii.  import them into mAPe/input/ directory  
-iii. run main.py  
+ii.  import them into mAPe/input/ directory by some scripts  
+iii. run main.py to get mAP estimation  
 
 **Nessesary files to mAP estimation of COCO**  
 Put some files on the top of mAPe directory.  
@@ -59,22 +59,23 @@ Put some files on the top of mAPe directory.
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
 
-**To import nessesary files**  
+**Setup nessesary files into mAPe/input/ directory**  
 
-can import image and GroundTruth files into input/ directory.  
+Import image and GroundTruth files into input/ directory.  
 ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
   see input/ground-truth and input/images directories.  
 
-can import inference result files into input/detection-results/ directory.  
+Import inference result files into input/detection-results/ directory.  
 ` $ ./convert_dr_yolo.sh dr.txt`  
   see input/detection-results directory.  
 
-**To convert json file to `FmtDR`**  
-If we got result of inference as json format we can convert it,  
+**Convert json file to `FmtDR` if need**  
+If result of inference is as json format convert it,  
   results of inference as json such as "coco_results.json".  
   can get it by darknet detector valid command line with eval=coco keyword in coco.data file.  
   see result/ directory of darknet.  
 
 ` $ ./json2dr.py coco_results.json`  
 
-
+**Get mAP estimation**  
+` $ python main.py`  
