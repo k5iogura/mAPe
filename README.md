@@ -89,7 +89,7 @@ see result/ directory of darknet.
 
 ***Get mAP estimation***  
 **Overall**  
-Copy name list for estimation to scripts/exatra/class_list.txt
+Copy name list for estimation to scripts/exatra/class_list.txt  
 ` $ python main.py`  
 **Hint:**  
 Category names used during estimation are collected infrom all GroundTruth files.  
