@@ -55,7 +55,7 @@ Rough flow of mAP estimation is,
 |#3   |COCO |VOC       |COCO               |COCO               |estimate COCO Model with VOC  Categories |
 |#4   |VOC  |COCO      |COCO               |VOC                |estimate VOC  Model with COCO Categories |
 
-### Estimation COCO Model with COCO Categories(#1)  
+### (#1) Estimation COCO Model with COCO Categories  
 
 ***Nessesary files to mAP estimation of COCO***  
 
@@ -73,7 +73,7 @@ Put some files on the top of mAPe directory.
 
 4. name list for all categories (id is by strings not but number) of inference as `FmtNM`  
     such as 'coco.names'  
-    Notice: reject or substitute space charactor to any ASCII chanractor E.g. under score '_'.  
+    Notice: reject or substitute space charactor to any ASCII chanractor E.g. underscore '_'.  
 
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
@@ -85,7 +85,7 @@ E.g.
 ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 
 Import image and GroundTruth files into input/ directory.  
-` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
+` $ ./convert_gt_yolo.sh `_5k.txt gt.txt_  
   see input/ground-truth and input/images directories.  
 
 Import inference result files into input/detection-results/ directory.  
@@ -114,7 +114,7 @@ Using file as voc-coco.ignore including ignored categories,
 ` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
 So that this shows _mAP of inference with COCO images and estimation with VOC categories_.  
 
-### Estimation VOC Model with VOC Categories(#2)  
+### (#2) Estimation VOC Model with VOC Categories  
 
 ` $ ./darknet detector valid voc.data model.cfg model.weights`  
 
@@ -146,6 +146,6 @@ comp4_det_test_cow.txt comp4_det_test_bicycle.txt    comp4_det_test_bottle.txt
 </p>
 </details>
 
-### Estimation COCO Model with VOC Categories(#3)  
-### Estimation VOC Model with COCO Categories(#4)  
+### (#3) Estimation COCO Model with VOC Categories  
+### (#4) Estimation VOC Model with COCO Categories  
 
