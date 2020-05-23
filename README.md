@@ -258,7 +258,7 @@ Put some files on the top of mAPe directory.
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
     ` $ ./convert_comp4_det.py -r darknet/results`
 - get mAP estimation via main.py  
-    ` $ python main.py`
+    ` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
 
 ### (#4) Estimation VOC Model with COCO Categories  
 
