@@ -145,7 +145,7 @@ Put some files on the top of mAPe directory.
     E.g.  
     ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 
-- Import image and GroundTruth files into input/ directory.  
+- Import images and GroundTruth files into input/ directory.  
     ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
       see input/ground-truth and input/images directories.  
 
@@ -154,17 +154,17 @@ Put some files on the top of mAPe directory.
       see input/detection-results directory.  
 
 ***Get mAP estimation***  
-**Overall**  
-Copy name list for estimation to scripts/exatra/class_list.txt  
-` $ python main.py`  
-**Hint:**  
-Category names used during estimation are collected infrom all GroundTruth files.  
-Categories included in result of inference files only will be ignored.  
+- **Overall**  
+    Copy name list for estimation to scripts/exatra/class_list.txt  
+    ` $ python main.py`  
+- **Hint:**  
+    Category names used during estimation are collected infrom all GroundTruth files.  
+    Categories included in result of inference files only will be ignored.  
 
-**Ignore unnessesary categories**  
-Using file as voc-coco.ignore including ignored categories,  
-` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
-So that this shows _mAP of inference with COCO images and estimation with VOC categories_.  
+- **Ignore unnessesary categories**  
+    Using file as voc-coco.ignore including ignored categories,  
+    ` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
+    So that this shows _mAP of inference with COCO images and estimation with VOC categories_.  
 
 ### (#2) Estimation VOC Model with VOC Categories  
 
