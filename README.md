@@ -118,6 +118,7 @@ So that this shows _mAP of inference with COCO images and estimation with VOC ca
 <details>
 <summary>voc data example</summary>
 <p>
+
 ```
 classes= 20
 train  = /home/20076433/work/VOC/YOLOv3/train.txt
@@ -126,6 +127,7 @@ valid  = 2007_test100.txt
 names = data/voc.names
 backup = backup
 ```
+
 </p>
 </details>
 
