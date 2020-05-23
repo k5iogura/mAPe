@@ -64,7 +64,7 @@ Put some files on the top of mAPe directory.
    `absolute path list of jpeg files` such as '5k.txt'  
 
 <details>
-<summary>"    5k.txt" file example</summary>
+<summary>"5k.txt" file example</summary>
 <p>
 
 ```
@@ -80,7 +80,7 @@ Put some files on the top of mAPe directory.
 2. absolute path list of GroundTruth files for each images written as `FmtGT`  
    `absolute path list of text files` such as 'gt.txt'  
 <details>
-<summary>"    gt.txt" file example</summary>
+<summary>"gt.txt" file example</summary>
 <p>
 
 ```
@@ -168,7 +168,8 @@ Put some files on the top of mAPe directory.
 
 ### (#2) Estimation VOC Model with VOC Categories  
 
-` $ ./darknet detector valid voc.data model.cfg model.weights`  
+- Inferences for VOC images with VOC model and get results/ directory  
+    ` $ ./darknet detector valid voc.data model.cfg model.weights`  
 
 <details>
 <summary>"voc.data" file example</summary>
@@ -199,6 +200,80 @@ Put some files on the top of mAPe directory.
 </p>
 </details>
 
+- setup result files into mAPe/input/ directory via convert_comp4_det.py  
+- get mAP estimation via main.py  
+
 ### (#3) Estimation COCO Model with VOC Categories  
+
+- Inferences for VOC images with COCO model and get results/ directory  
+    ` $ ./darknet detector valid voc-coco.data model.cfg model.weights`  
+
+<details>
+<summary>"voc-coco.data" file example</summary>
+<p>
+
+```
+    classes= 80
+    train  = train.txt
+    valid  = 2007_test100.txt
+    names  = data/coco.names
+    backup = backup
+    eval   = default
+```
+
+</p>
+</details>
+
+<details>
+<summary>generated results/ directory example</summary>
+<p>
+
+```
+    comp4_det_test_aeroplane.txt       comp4_det_test_bowl.txt         comp4_det_test_donut.txt
+    comp4_det_test_apple.txt           comp4_det_test_broccoli.txt     comp4_det_test_elephant.txt
+...
+```
+
+</p>
+</details>
+
+- setup result files into mAPe/input/ directory via convert_comp4_det.py  
+- get mAP estimation via main.py  
+
 ### (#4) Estimation VOC Model with COCO Categories  
+
+- Inferences for COCO images with VOC model and get results/ directory  
+    ` $ ./darknet detector valid coco-voc.data model.cfg model.weights`  
+
+<details>
+<summary>"coco-voc.data" file example</summary>
+<p>
+
+```
+    classes= 20
+    train  = train.txt
+    valid  = 5k.txt
+    names  = data/voc.names
+    backup = backup
+    eval   = default
+```
+
+</p>
+</details>
+
+<details>
+<summary>generated results/ directory example</summary>
+<p>
+
+```
+    comp4_det_test_aeroplane.txt  comp4_det_test_boat.txt    comp4_det_test_car.txt
+    comp4_det_test_cow.txt comp4_det_test_bicycle.txt    comp4_det_test_bottle.txt
+...
+```
+
+</p>
+</details>
+
+- setup result files into mAPe/input/ directory via convert_comp4_det.py  
+- get mAP estimation via main.py  
 
