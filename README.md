@@ -38,19 +38,22 @@ see input/ and output/ directories.
 
 ### How to estimate mAP of darknet COCO models  
 Rough flow of mAP estimation is,  
-i.   prepare some list files for Images, GroundTruth, Inference results and category names  
+i.   prepare some list files for COCO or VOC below,  
+     test images and GroundTruth paths list (Test image),  
+     GroundTruth labels (Label to GT convert),  
+     Inference labels (Label to DR convert) and results  
 ii.  import them into mAPe/input/ directory by some scripts  
 iii. run main.py to get mAP estimation  
 iV.  run main.py with ignored_list.txt optionally  
 
-Various estimation cases.  
+**Preparations for various estimation cases**.  
 
-|Case |Model|Test Img |Label to GT convert|Label to DR convert|Target                                     |
-|:-:  |:-   |:-       |:-                 |:-                 |:-                                         |
-|#1   |COCO |COCO     |COCO               |COCO               |COCO Model with COCO Categories estimation |
-|#2   |VOC  |VOC      |VOC                |VOC                |VOC  Model with VOC  Categories estimation |
-|#3   |COCO |VOC      |COCO               |COCO               |COCO Model with VOC  Categories estimation |
-|#4   |VOC  |COCO     |COCO               |VOC                |VOC  Model with COCO Categories estimation |
+|Case |Model|Test Iamge|Label to GT convert|Label to DR convert|Target                                     |
+|:-:  |:-   |:-        |:-                 |:-                 |:-                                         |
+|#1   |COCO |COCO      |COCO               |COCO               |COCO Model with COCO Categories estimation |
+|#2   |VOC  |VOC       |VOC                |VOC                |VOC  Model with VOC  Categories estimation |
+|#3   |COCO |VOC       |COCO               |COCO               |COCO Model with VOC  Categories estimation |
+|#4   |VOC  |COCO      |COCO               |VOC                |VOC  Model with COCO Categories estimation |
 
 ***Nessesary files to mAP estimation of COCO***  
 Put some files on the top of mAPe directory.  
