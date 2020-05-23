@@ -91,6 +91,7 @@ Import inference result files into input/detection-results/ directory.
 ` $ ./convert_dr_yolo.sh dr.txt`  
   see input/detection-results directory.  
 
+**How to get results of inference on darknet as results/comp4_det_test_ files**  
 **Convert json file to `FmtDR` if need**  
 If result of inference is as json format convert it,  
 results of inference as json such as "coco_results.json".  
@@ -115,8 +116,9 @@ So that this shows _mAP of inference with COCO images and estimation with VOC ca
 ### Estimation VOC Model with VOC Categories(#2)  
 
 ` $ ./darknet detector valid voc.data model.cfg model.weights`  
+
 <details>
-<summary>voc data example</summary>
+<summary>"voc.data" file example</summary>
 <p>
 
 ```
@@ -126,6 +128,19 @@ valid  = 2007_test100.txt
 #valid  = /home/20076433/work/VOC/YOLOv3/2007_test.txt
 names = data/voc.names
 backup = backup
+```
+
+</p>
+</details>
+
+<details>
+<summary>see results/ directory</summary>
+<p>
+
+```
+comp4_det_test_aeroplane.txt  comp4_det_test_boat.txt    comp4_det_test_car.txt    comp4_det_test_cow.txt
+comp4_det_test_bicycle.txt    comp4_det_test_bottle.txt  comp4_det_test_cat.txt    comp4_det_test_diningtable.txt
+...
 ```
 
 </p>
