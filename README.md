@@ -12,21 +12,21 @@ E.g. estimating COCO model with VOC categories.
 
 - GroundTruth `FmtGT`  
 
-`<class_name> <left> <top> <right> <bottom> [<difficult>]`  
+    `<class_name> <left> <top> <right> <bottom> [<difficult>]`  
 
-"difficult" keyword lines are ignored on estimation.  
+    "difficult" keyword lines are ignored on estimation.  
 
 - Results of Inference `FmtDR`  
 
-`<class_name> <confidence> <left> <top> <right> <bottom>`  
+    `<class_name> <confidence> <left> <top> <right> <bottom>`  
 
 - name list for categories `FmtNM`  
-```
-dog
-cat
-cow
-...
-```
+    ```
+    dog
+    cat
+    cow
+    ...
+    ```
 
 ### How to run via example input directry  
 
