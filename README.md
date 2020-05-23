@@ -48,14 +48,17 @@ Rough flow of mAP estimation is,
 
 **Preparations for various estimation cases**.  
 
-|Case |Model|Test Iamge|Label to GT convert|Label to DR convert|Target                                     |
-|:-:  |:-   |:-        |:-                 |:-                 |:-                                         |
-|#1   |COCO |COCO      |COCO               |COCO               |COCO Model with COCO Categories estimation |
-|#2   |VOC  |VOC       |VOC                |VOC                |VOC  Model with VOC  Categories estimation |
-|#3   |COCO |VOC       |COCO               |COCO               |COCO Model with VOC  Categories estimation |
-|#4   |VOC  |COCO      |COCO               |VOC                |VOC  Model with COCO Categories estimation |
+|Case |Model|Test Iamge|Label to GT convert|Label to DR convert|Target                                   |
+|:-:  |:-   |:-        |:-                 |:-                 |:-                                       |
+|#1   |COCO |COCO      |COCO               |COCO               |estimate COCO Model with COCO Categories |
+|#2   |VOC  |VOC       |VOC                |VOC                |estimate VOC  Model with VOC  Categories |
+|#3   |COCO |VOC       |COCO               |COCO               |estimate COCO Model with VOC  Categories |
+|#4   |VOC  |COCO      |COCO               |VOC                |estimate VOC  Model with COCO Categories |
+
+### Estimation COCO Model with COCO Categories(#1)  
 
 ***Nessesary files to mAP estimation of COCO***  
+
 Put some files on the top of mAPe directory.  
 1. absolute path list of images used to infer.  
    `absolute path list of jpeg files` such as '5k.txt'  
@@ -64,10 +67,6 @@ Put some files on the top of mAPe directory.
    `absolute path list of text files` such as 'gt.txt'  
 
 **image file path and GroundTruth file path must have a same basename to map**  
-E.g.  
-/somewhere/images/val2014/COCO_val2014_000000000164.jpg  
-/somewhere/GT/000000000164/COCO_val2014_000000000164.txt  
-Its can be mapped.  
 
 3. absolute path list of inference result files for each images written as `FmtDR`  
    `absolute path list of text files` sudch as 'dr.txt'  
