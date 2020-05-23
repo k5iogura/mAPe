@@ -73,6 +73,7 @@ Put some files on the top of mAPe directory.
 
 4. name list for all categories (id is by strings not but number) of inference as `FmtNM`  
     such as 'coco.names'  
+    Notice: reject or substitute space charactor to any ASCII chanractor E.g. under score '_'.  
 
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
@@ -81,7 +82,7 @@ Put some files on the top of mAPe directory.
 
 Copy coco name list file of inference to scripts/extra/class_list.txt  
 E.g.  
-` $ cp coco.names scripys/extra/class_list.txt`  
+` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 
 Import image and GroundTruth files into input/ directory.  
 ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
