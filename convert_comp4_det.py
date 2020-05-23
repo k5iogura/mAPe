@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys,os,re,argparse
 from glob import glob
 
@@ -14,11 +15,14 @@ dr_dir=args.detection_results
 
 c4_files = glob(c4_dir+"/*")
 if len(c4_files)==0:
-    print("Error2")
+    print("Error: not found any files in %s"%c4_dir)
     sys.exit(-1)
 
 dn_id={}
 for f in c4_files:
+    if not 'comp4_det_test_' in f:
+        print("Error: Can not process file without comp4_det_test_*.txt type, bye")
+        sys.exit(-1)
     class_name = re.sub('comp4_det_test_','',os.path.splitext(os.path.basename(f))[0])
     class_name = re.sub(' ','_',class_name)
     print(f,class_name)
