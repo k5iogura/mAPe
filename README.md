@@ -36,8 +36,8 @@ E.g. estimating COCO model with VOC categories.
 
 see input/ and output/ directories.  
 
-### How to estimate mAP of darknet COCO models  
-Rough flow of mAP estimation is,  
+### About Rough Plan : How to estimate mAP of darknet models trained with Any Dataset  
+Rough plan of mAP estimation is,  
 * i.   prepare some list files for COCO or VOC below,  
     test images and GroundTruth paths list (Test image),  
     GroundTruth labels (Label to GT convert),  
