@@ -303,6 +303,7 @@ Put some files on the top of mAPe directory.
     ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
-    `$ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
+    ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
+    ` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
 
 
