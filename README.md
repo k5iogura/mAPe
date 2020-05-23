@@ -85,7 +85,7 @@ E.g.
 ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 
 Import image and GroundTruth files into input/ directory.  
-` $ ./convert_gt_yolo.sh `_5k.txt gt.txt_  
+` $ ./convert_gt_yolo.sh _5k.txt gt.txt_`  
   see input/ground-truth and input/images directories.  
 
 Import inference result files into input/detection-results/ directory.  
