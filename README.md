@@ -68,9 +68,9 @@ Put some files on the top of mAPe directory.
 <p>
 
 ```
-/somewhere1/DATASET/coco/images/val2014/COCO_val2014_000000000164.jpg
-/somewhere2/DATASET/coco/images/val2014/COCO_val2014_000000000192.jpg
-/somewhere3/DATASET/coco/images/val2014/COCO_val2014_000000000283.jpg
+    /somewhere1/DATASET/coco/images/val2014/COCO_val2014_000000000164.jpg
+    /somewhere2/DATASET/coco/images/val2014/COCO_val2014_000000000192.jpg
+    /somewhere3/DATASET/coco/images/val2014/COCO_val2014_000000000283.jpg
 ...
 ```
 
@@ -84,9 +84,9 @@ Put some files on the top of mAPe directory.
 <p>
 
 ```
-/anywhere2/labels/COCO_val2014_000000000164.txt
-/anywhere3/labels/COCO_val2014_000000000192.txt
-/anywhere4/labels/COCO_val2014_000000000283.txt
+    /anywhere2/labels/COCO_val2014_000000000164.txt
+    /anywhere3/labels/COCO_val2014_000000000192.txt
+    /anywhere4/labels/COCO_val2014_000000000283.txt
 ...
 ```
 
@@ -101,11 +101,11 @@ Put some files on the top of mAPe directory.
 
 4. directory including inference result files for each classes written as `FmtDR`  
 
-**How to get result files of inference on darknet as results/comp4_det_test_ files**  
-By command below,  
-`$ ./darknet detector valid coco.data model.cfg model.weights`  
-option line with eval=default keyword in data file.  
-After command run see result/ directory of darknet.  
+    **How to get result files of inference on darknet as results/comp4_det_test_ files**  
+    By command below,  
+    `$ ./darknet detector valid coco.data model.cfg model.weights`  
+    option line with eval=default keyword in data file.  
+    After command run see result/ directory of darknet.  
 
 <details>
 <summary>"coco.data" file example</summary>
@@ -175,12 +175,12 @@ So that this shows _mAP of inference with COCO images and estimation with VOC ca
 <p>
 
 ```
-classes= 20
-train  = train.txt
-valid  = 2007_test100.txt
-names  = data/voc.names
-backup = backup
-eval   = default
+    classes= 20
+    train  = train.txt
+    valid  = 2007_test100.txt
+    names  = data/voc.names
+    backup = backup
+    eval   = default
 ```
 
 </p>
@@ -191,8 +191,8 @@ eval   = default
 <p>
 
 ```
-comp4_det_test_aeroplane.txt  comp4_det_test_boat.txt    comp4_det_test_car.txt
-comp4_det_test_cow.txt comp4_det_test_bicycle.txt    comp4_det_test_bottle.txt
+    comp4_det_test_aeroplane.txt  comp4_det_test_boat.txt    comp4_det_test_car.txt
+    comp4_det_test_cow.txt comp4_det_test_bicycle.txt    comp4_det_test_bottle.txt
 ...
 ```
 
