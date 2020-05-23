@@ -248,6 +248,11 @@ Put some files on the top of mAPe directory.
 </p>
 </details>
 
+- cleanup input/ directory  
+    ` $ ./setup_new.sh`  
+
+- Copy coco name list file of inference to scripts/extra/class_list.txt  
+    ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 - Import images and GroundTruth files into input/ directory.  
     ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
