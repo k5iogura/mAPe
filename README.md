@@ -156,6 +156,7 @@ Put some files on the top of mAPe directory.
 ***Get mAP estimation***  
 - **Overall**  
     Copy name list for estimation to scripts/exatra/class_list.txt  
+    ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
     ` $ python main.py`  
 - **Hint:**  
     Category names used during estimation are collected infrom all GroundTruth files.  
@@ -206,12 +207,14 @@ Put some files on the top of mAPe directory.
 - Copy voc name list file of inference to scripts/extra/class_list.txt  
     ` $ cp scripts/extra/voc.names scripts/extra/class_list.txt`  
 
+- Import images and GroundTruth files into input/ directory.  
+    ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
 
 ### (#3) Estimation COCO Model with VOC Categories  
 
-- Inferences for VOC images with COCO model and get results/ directory  
+- Inferences VOC images with COCO model and get results/ directory  
     ` $ ./darknet detector valid voc-coco.data model.cfg model.weights`  
 
 <details>
@@ -243,12 +246,14 @@ Put some files on the top of mAPe directory.
 </p>
 </details>
 
+- Import images and GroundTruth files into input/ directory.  
+    ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
 
 ### (#4) Estimation VOC Model with COCO Categories  
 
-- Inferences for COCO images with VOC model and get results/ directory  
+- Inferences COCO images with VOC model and get results/ directory  
     ` $ ./darknet detector valid coco-voc.data model.cfg model.weights`  
 
 <details>
@@ -286,6 +291,8 @@ Put some files on the top of mAPe directory.
 - Copy coco name list file of inference to scripts/extra/class_list.txt  
     ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 
+- Import images and GroundTruth files into input/ directory.  
+    ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
     `$ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
