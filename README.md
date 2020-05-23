@@ -39,9 +39,9 @@ see input/ and output/ directories.
 ### How to estimate mAP of darknet COCO models  
 Rough flow of mAP estimation is,  
 i.   prepare some list files for COCO or VOC below,  
-     test images and GroundTruth paths list (Test image),  
-     GroundTruth labels (Label to GT convert),  
-     Inference labels (Label to DR convert) and results  
+    test images and GroundTruth paths list (Test image),  
+    GroundTruth labels (Label to GT convert),  
+    Inference labels (Label to DR convert) and results  
 ii.  import them into mAPe/input/ directory by some scripts  
 iii. run main.py to get mAP estimation  
 iV.  run main.py with ignored_list.txt optionally  
