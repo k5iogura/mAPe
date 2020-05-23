@@ -126,6 +126,7 @@ comp4_det_test_apple.txt           comp4_det_test_broccoli.txt     comp4_det_tes
 
 </p>
 </details>
+
 ***Get mAP estimation***  
 **Overall**  
 Copy name list for estimation to scripts/exatra/class_list.txt  
