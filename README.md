@@ -123,10 +123,9 @@ So that this shows _mAP of inference with COCO images and estimation with VOC ca
 
 ```
 classes= 20
-train  = /home/20076433/work/VOC/YOLOv3/train.txt
+train  = train.txt
 valid  = 2007_test100.txt
-#valid  = /home/20076433/work/VOC/YOLOv3/2007_test.txt
-names = data/voc.names
+names  = data/voc.names
 backup = backup
 ```
 
@@ -134,12 +133,12 @@ backup = backup
 </details>
 
 <details>
-<summary>see results/ directory</summary>
+<summary>generated results/ directory example</summary>
 <p>
 
 ```
-comp4_det_test_aeroplane.txt  comp4_det_test_boat.txt    comp4_det_test_car.txt    comp4_det_test_cow.txt
-comp4_det_test_bicycle.txt    comp4_det_test_bottle.txt  comp4_det_test_cat.txt    comp4_det_test_diningtable.txt
+comp4_det_test_aeroplane.txt  comp4_det_test_boat.txt    comp4_det_test_car.txt
+comp4_det_test_cow.txt comp4_det_test_bicycle.txt    comp4_det_test_bottle.txt
 ...
 ```
 
