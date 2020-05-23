@@ -206,9 +206,8 @@ Put some files on the top of mAPe directory.
 
 - Copy voc name list file of inference to scripts/extra/class_list.txt  
     ` $ cp scripts/extra/voc.names scripts/extra/class_list.txt`  
-
 - Import images and GroundTruth files into input/ directory.  
-    ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
+    ` $ ./convert_gt_yolo.sh 2007_test.txt gt_2007_test.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
     ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
@@ -254,7 +253,7 @@ Put some files on the top of mAPe directory.
 - Copy coco name list file of inference to scripts/extra/class_list.txt  
     ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 - Import images and GroundTruth files into input/ directory.  
-    ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
+    ` $ ./convert_gt_yolo.sh 2007_test.txt gt_2007_testgt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
     ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
