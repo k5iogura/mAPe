@@ -209,6 +209,7 @@ Put some files on the top of mAPe directory.
 - Import images and GroundTruth files into input/ directory.  
     ` $ ./convert_gt_yolo.sh 2007_test.txt gt_2007_test.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
+    ` $ ./convert_comp4_det.py -r darknet/results`
 - get mAP estimation via main.py  
     ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
     ` $ python main.py`
@@ -255,11 +256,18 @@ Put some files on the top of mAPe directory.
 - Import images and GroundTruth files into input/ directory.  
     ` $ ./convert_gt_yolo.sh 2007_test.txt gt_2007_testgt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
+    ` $ ./convert_comp4_det.py -r darknet/results`
 - get mAP estimation via main.py  
     ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
     ` $ python main.py`
 
 ### (#4) Estimation VOC Model with COCO Categories  
+
+- cleanup input/ directory  
+    ` $ ./setup_new.sh`  
+
+- Copy coco name list file of inference to scripts/extra/class_list.txt  
+    ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 
 - Inferences COCO images with VOC model and get results/ directory  
     ` $ ./darknet detector valid coco-voc.data model.cfg model.weights`  
@@ -293,15 +301,10 @@ Put some files on the top of mAPe directory.
 </p>
 </details>
 
-- cleanup input/ directory  
-    ` $ ./setup_new.sh`  
-
-- Copy coco name list file of inference to scripts/extra/class_list.txt  
-    ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
-
 - Import images and GroundTruth files into input/ directory.  
     ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
+    ` $ ./convert_comp4_det.py -r darknet/results`
 - get mAP estimation via main.py  
     ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
     ` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
