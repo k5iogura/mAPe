@@ -141,17 +141,17 @@ Put some files on the top of mAPe directory.
 
 ***Setup nessesary files into mAPe/input/ directory***  
 
-Copy coco name list file of inference to scripts/extra/class_list.txt  
-E.g.  
-` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
+- Copy coco name list file of inference to scripts/extra/class_list.txt  
+    E.g.  
+    ` $ cp scripts/extra/coco.names scripts/extra/class_list.txt`  
 
-Import image and GroundTruth files into input/ directory.  
-` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
-  see input/ground-truth and input/images directories.  
+- Import image and GroundTruth files into input/ directory.  
+    ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
+      see input/ground-truth and input/images directories.  
 
-Import inference result files into input/detection-results/ directory.  
-` $ ./convert_comp4_det.py -r darknet/results`
-  see input/detection-results directory.  
+- Import inference result files into input/detection-results/ directory.  
+    ` $ ./convert_comp4_det.py -r darknet/results`
+      see input/detection-results directory.  
 
 ***Get mAP estimation***  
 **Overall**  
