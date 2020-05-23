@@ -68,9 +68,9 @@ Put some files on the top of mAPe directory.
 <p>
 
 ```
-/somewhere/DATASET/coco/images/val2014/COCO_val2014_000000000164.jpg
-/somewhere/DATASET/coco/images/val2014/COCO_val2014_000000000192.jpg
-/somewhere/DATASET/coco/images/val2014/COCO_val2014_000000000283.jpg
+/somewhere1/DATASET/coco/images/val2014/COCO_val2014_000000000164.jpg
+/somewhere2/DATASET/coco/images/val2014/COCO_val2014_000000000192.jpg
+/somewhere3/DATASET/coco/images/val2014/COCO_val2014_000000000283.jpg
 ...
 ```
 
@@ -84,9 +84,9 @@ Put some files on the top of mAPe directory.
 <p>
 
 ```
-/anywhere/coco/labels/val2014/COCO_val2014_000000000164.txt
-/anywhere/coco/labels/val2014/COCO_val2014_000000000192.txt
-/anywhere/coco/labels/val2014/COCO_val2014_000000000283.txt
+/anywhere2/labels/COCO_val2014_000000000164.txt
+/anywhere3/labels/COCO_val2014_000000000192.txt
+/anywhere4/labels/COCO_val2014_000000000283.txt
 ...
 ```
 
@@ -95,12 +95,11 @@ Put some files on the top of mAPe directory.
 
     image file path and GroundTruth file path must have a same basename to map  
 
-3. absolute path list of inference result files for each images written as `FmtDR`  
-   `absolute path list of text files` sudch as 'dr.txt'  
-
-4. name list for all categories (id is by strings not but number) of inference as `FmtNM`  
+3. name list for all categories (id is by strings not but number) of inference as `FmtNM`  
     such as 'coco.names'  
     Notice: reject or substitute space charactor in category name to underscore '_'.  
+
+4. directory include inference result files for each classes written as `FmtDR`  
 
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
