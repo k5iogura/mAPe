@@ -93,7 +93,7 @@ Put some files on the top of mAPe directory.
 </p>
 </details>
 
-image file path and GroundTruth file path must have a same basename to map  
+    image file path and GroundTruth file path must have a same basename to map  
 
 3. absolute path list of inference result files for each images written as `FmtDR`  
    `absolute path list of text files` sudch as 'dr.txt'  
