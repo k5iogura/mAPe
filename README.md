@@ -64,7 +64,7 @@ Put some files on the top of mAPe directory.
    `absolute path list of jpeg files` such as '5k.txt'  
 
 <details>
-<summary>"5k.txt" file example</summary>
+<summary>"    5k.txt" file example</summary>
 <p>
 
 ```
@@ -80,7 +80,7 @@ Put some files on the top of mAPe directory.
 2. absolute path list of GroundTruth files for each images written as `FmtGT`  
    `absolute path list of text files` such as 'gt.txt'  
 <details>
-<summary>"gt.txt" file example</summary>
+<summary>"    gt.txt" file example</summary>
 <p>
 
 ```
