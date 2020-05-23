@@ -211,6 +211,8 @@ Put some files on the top of mAPe directory.
     ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
+    ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
+    ` $ python main.py`
 
 ### (#3) Estimation COCO Model with VOC Categories  
 
@@ -250,6 +252,8 @@ Put some files on the top of mAPe directory.
     ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
 - setup result files into mAPe/input/ directory via convert_comp4_det.py  
 - get mAP estimation via main.py  
+    ` $ python ./scripts/extra/intersect-gt-and-dr.py`  
+    ` $ python main.py`
 
 ### (#4) Estimation VOC Model with COCO Categories  
 
