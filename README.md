@@ -62,18 +62,42 @@ Rough flow of mAP estimation is,
 Put some files on the top of mAPe directory.  
 1. absolute path list of images used to infer.  
    `absolute path list of jpeg files` such as '5k.txt'  
+<summary>"5k.txt" file example</summary>
+<p>
+
+```
+/somewhere/DATASET/coco/images/val2014/COCO_val2014_000000000164.jpg
+/somewhere/DATASET/coco/images/val2014/COCO_val2014_000000000192.jpg
+/somewhere/DATASET/coco/images/val2014/COCO_val2014_000000000283.jpg
+...
+```
+
+</p>
+</details>
 
 2. absolute path list of GroundTruth files for each images written as `FmtGT`  
    `absolute path list of text files` such as 'gt.txt'  
+<summary>"gt.txt" file example</summary>
+<p>
 
-**image file path and GroundTruth file path must have a same basename to map**  
+```
+/anywhere/coco/labels/val2014/COCO_val2014_000000000164.txt
+/anywhere/coco/labels/val2014/COCO_val2014_000000000192.txt
+/anywhere/coco/labels/val2014/COCO_val2014_000000000283.txt
+...
+```
+
+</p>
+</details>
+
+image file path and GroundTruth file path must have a same basename to map  
 
 3. absolute path list of inference result files for each images written as `FmtDR`  
    `absolute path list of text files` sudch as 'dr.txt'  
 
 4. name list for all categories (id is by strings not but number) of inference as `FmtNM`  
     such as 'coco.names'  
-    Notice: reject or substitute space charactor to any ASCII chanractor E.g. underscore '_'.  
+    Notice: reject or substitute space charactor in category name to underscore '_'.  
 
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
