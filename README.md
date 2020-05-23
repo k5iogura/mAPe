@@ -112,3 +112,23 @@ Using file as voc-coco.ignore including ignored categories,
 ` $ python main.py -i $(cat scripts/extra/voc-coco.ignore)`  
 So that this shows _mAP of inference with COCO images and estimation with VOC categories_.  
 
+### Estimation VOC Model with VOC Categories(#2)  
+
+` $ ./darknet detector valid voc.data model.cfg model.weights`  
+<details>
+<summary>voc data example</summary>
+<p>
+```
+classes= 20
+train  = /home/20076433/work/VOC/YOLOv3/train.txt
+valid  = 2007_test100.txt
+#valid  = /home/20076433/work/VOC/YOLOv3/2007_test.txt
+names = data/voc.names
+backup = backup
+```
+</p>
+</details>
+
+### Estimation COCO Model with VOC Categories(#3)  
+### Estimation VOC Model with COCO Categories(#4)  
+
