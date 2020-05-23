@@ -99,7 +99,42 @@ Put some files on the top of mAPe directory.
     such as 'coco.names'  
     Notice: reject or substitute space charactor in category name to underscore '_'.  
 
-4. directory include inference result files for each classes written as `FmtDR`  
+4. directory including inference result files for each classes written as `FmtDR`  
+
+**How to get result files of inference on darknet as results/comp4_det_test_ files**  
+By command below,  
+`$ ./darknet detector valid coco.data model.cfg model.weights`  
+option line with eval=default keyword in data file.  
+After command run see result/ directory of darknet.  
+
+<details>
+<summary>"coco.data" file example</summary>
+<p>
+
+```
+    classes= 80
+    train  = train.txt
+    valid  = 5k.txt
+    names  = data/coco.names
+    backup = backup
+    eval   = default
+```
+
+</p>
+</details>
+
+<details>
+<summary>generated results/ directory example</summary>
+<p>
+
+```
+    comp4_det_test_aeroplane.txt       comp4_det_test_bowl.txt         comp4_det_test_donut.txt
+    comp4_det_test_apple.txt           comp4_det_test_broccoli.txt     comp4_det_test_elephant.txt
+...
+```
+
+</p>
+</details>
 
 5. name list for ignored categories as `FmtNM` optionally  
     such as 'coco.ignores'  
@@ -117,41 +152,6 @@ Import image and GroundTruth files into input/ directory.
 Import inference result files into input/detection-results/ directory.  
 ` $ ./convert_comp4_det.py -r darknet/results`
   see input/detection-results directory.  
-
-**How to get result files of inference on darknet as results/comp4_det_test_ files**  
-By command below,  
-`$ ./darknet detector valid coco.data model.cfg model.weights`  
-option line with eval=default keyword in data file.  
-After command run see result/ directory of darknet.  
-
-<details>
-<summary>"coco.data" file example</summary>
-<p>
-
-```
-classes= 80
-train  = train.txt
-valid  = 5k.txt
-names  = data/coco.names
-backup = backup
-eval   = default
-```
-
-</p>
-</details>
-
-<details>
-<summary>generated results/ directory example</summary>
-<p>
-
-```
-comp4_det_test_aeroplane.txt       comp4_det_test_bowl.txt         comp4_det_test_donut.txt
-comp4_det_test_apple.txt           comp4_det_test_broccoli.txt     comp4_det_test_elephant.txt
-...
-```
-
-</p>
-</details>
 
 ***Get mAP estimation***  
 **Overall**  
