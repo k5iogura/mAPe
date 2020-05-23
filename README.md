@@ -89,18 +89,43 @@ Import image and GroundTruth files into input/ directory.
   see input/ground-truth and input/images directories.  
 
 Import inference result files into input/detection-results/ directory.  
-` $ ./convert_dr_yolo.sh dr.txt`  
+` $ ./convert_comp4_det.py -r darknet/results`
   see input/detection-results directory.  
 
-**How to get results of inference on darknet as results/comp4_det_test_ files**  
-**Convert json file to `FmtDR` if need**  
-If result of inference is as json format convert it,  
-results of inference as json such as "coco_results.json".  
-can get it by darknet detector valid command line with eval=coco keyword in coco.data file.  
-see result/ directory of darknet.  
+**How to get result files of inference on darknet as results/comp4_det_test_ files**  
+By command below,  
+`$ ./darknet detector valid coco.data model.cfg model.weights`  
+option line with eval=default keyword in data file.  
+After command run see result/ directory of darknet.  
 
-` $ ./json2dr.py coco_results.json`  
+<details>
+<summary>"coco.data" file example</summary>
+<p>
 
+```
+classes= 80
+train  = train.txt
+valid  = 5k.txt
+names  = data/coco.names
+backup = backup
+eval   = default
+```
+
+</p>
+</details>
+
+<details>
+<summary>generated results/ directory example</summary>
+<p>
+
+```
+comp4_det_test_aeroplane.txt       comp4_det_test_bowl.txt         comp4_det_test_donut.txt
+comp4_det_test_apple.txt           comp4_det_test_broccoli.txt     comp4_det_test_elephant.txt
+...
+```
+
+</p>
+</details>
 ***Get mAP estimation***  
 **Overall**  
 Copy name list for estimation to scripts/exatra/class_list.txt  
@@ -128,6 +153,7 @@ train  = train.txt
 valid  = 2007_test100.txt
 names  = data/voc.names
 backup = backup
+eval   = default
 ```
 
 </p>
