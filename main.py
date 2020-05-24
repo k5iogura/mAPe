@@ -6,12 +6,17 @@ import operator
 import sys
 import argparse
 import math
+from subprocess import check_output
 
 import numpy as np
 
 MINOVERLAP = 0.5 # default value (defined in the PASCAL VOC2012 challenge)
 
+def check(f):
+    if os.path.exists(f):return str(f)
+    return None
 parser = argparse.ArgumentParser()
+parser.add_argument('-db', '--input_dir', nargs=1, type=check, required=True)
 parser.add_argument('-an', '--animation', help="no animation is shown.", action="store_true")
 parser.add_argument('-np', '--no-plot', help="no plot is shown.", action="store_true")
 parser.add_argument('-q', '--quiet', help="minimalistic console output.", action="store_true")
@@ -20,6 +25,10 @@ parser.add_argument('-i', '--ignore', nargs='+', type=str, help="ignore a list o
 # argparse receiving list of classes with specific IoU (e.g., python main.py --set-class-iou person 0.7)
 parser.add_argument('--set-class-iou', nargs='+', type=str, help="set IoU for a specific class.")
 args = parser.parse_args()
+
+target=str(args.input_dir[0])
+msg = check_output(['scripts/extra/intersect-gt-and-dr.py',"-db",target])
+print(msg)
 
 '''
     0,0 ------> x (width)
@@ -44,10 +53,10 @@ if args.set_class_iou is not None:
 # make sure that the cwd() is the location of the python script (so that every path makes sense)
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-GT_PATH = os.path.join(os.getcwd(), 'input', 'ground-truth')
-DR_PATH = os.path.join(os.getcwd(), 'input', 'detection-results')
+GT_PATH = os.path.join(os.getcwd(), target, 'ground-truth')
+DR_PATH = os.path.join(os.getcwd(), target, 'detection-results')
 # if there are no images then no animation can be shown
-IMG_PATH = os.path.join(os.getcwd(), 'input', 'images-optional')
+IMG_PATH = os.path.join(os.getcwd(),target, 'images-optional')
 if os.path.exists(IMG_PATH): 
     for dirpath, dirnames, files in os.walk(IMG_PATH):
         if not files:

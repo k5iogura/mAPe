@@ -12,21 +12,27 @@ if [ $# -lt 1 ] || [ ! -e $1 ]; then
 elif [ $# -le 2 ]; then
     im_list=$(realpath $1)
 fi
+
+# select GT directory
+DSTYPE=0
 grep -i VOC $im_list > /dev/null
 if [ $? -eq 0 ];then
     echo VOC Dataset may be.
     sub1='s/JPEGImages/labels/'
     cp scripts/extra/voc.names  scripts/extra/class_list.txt
+    DSTYPE=$(($DSTYPE+1))
 fi
 grep -i COCO $im_list > /dev/null
 if [ $? -eq 0 ];then
     echo COCO Dataset may be.
     sub1='s/images/labels/'
     cp scripts/extra/coco.names scripts/extra/class_list.txt
+    DSTYPE=$(($DSTYPE+1))
 fi
 
 #cleanup
-./setup_new.sh
+target="${im_list%.*}"
+./setup_new.sh ${target}
 
 # ground-truth files path list
 sub2='s/.jpg/.txt/'
@@ -43,7 +49,6 @@ if [ $# -le 1 ]; then
         echo $i >> $gt_list
     done
     echo generating $gt_list ...
-    # for i in $(cat ${im_list}|sed -e ${sub1} -e ${sub2});do echo $i ;done > $gt_list
     echo done.
 elif [ ! -e $2 ]; then
     echo Error!: not found $2;exit
@@ -58,8 +63,8 @@ for i in $(cat ${gt_list});do
 done
 
 # make input/ directory
-gt_dir="input/ground-truth"
-im_dir="input/images-optional"
+gt_dir="${target}/ground-truth"
+im_dir="${target}/images-optional"
 gtN=$(ls ${gt_dir}/|wc -l)
 imN=$(ls ${im_dir}/|wc -l)
 echo $gtN files in $gt_dir
@@ -100,7 +105,7 @@ if [ $gt_classesN -gt $nm_classesN ]; then
 fi
 
 echo convertion category number to name strings
-python scripts/extra/convert_gt_yolo.py
+python scripts/extra/convert_gt_yolo.py -id ${target}
 
 echo Searching Ground-Truth category names in ${gt_dir} ...
 classes=$(cat ${gt_dir}/*.txt | awk '{print $1;}' | sort -u)

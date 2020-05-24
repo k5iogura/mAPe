@@ -2,6 +2,12 @@ import sys
 import os
 import glob
 import cv2
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-id', '--input_dir', type=str, default="input")
+parser.add_argument('-cl', '--class_list', type=str, default="class_list.txt")
+args = parser.parse_args()
 
 def convert_yolo_coordinates_to_voc(x_c_n, y_c_n, width_n, height_n, img_width, img_height):
   ## remove normalization given the size of the image
@@ -24,7 +30,7 @@ def convert_yolo_coordinates_to_voc(x_c_n, y_c_n, width_n, height_n, img_width, 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # read the class_list.txt to a list
-with open("class_list.txt") as f:
+with open(args.class_list) as f:
   obj_list = f.readlines()
 ## remove whitespace characters like `\n` at the end of each line
   obj_list = [x.strip() for x in obj_list]
@@ -34,7 +40,7 @@ with open("class_list.txt") as f:
 # change directory to the one with the files to be changed
 parent_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 parent_path = os.path.abspath(os.path.join(parent_path, os.pardir))
-GT_PATH = os.path.join(parent_path, 'input','ground-truth')
+GT_PATH = os.path.join(parent_path, args.input_dir,'ground-truth')
 #print(GT_PATH)
 os.chdir(GT_PATH)
 

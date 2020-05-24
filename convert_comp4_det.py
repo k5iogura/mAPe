@@ -7,12 +7,13 @@ def check(path):
     if os.path.exists(path):return str(path)
     return None
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--detection_results', type=check, default="input/detection-results/")
-parser.add_argument('-r', '--comp4_dir', type=check, required=True)
+parser.add_argument('-db', '--input_dir',        type=check, nargs=1, required=True)
+parser.add_argument('-s', '--detection_results', type=str, default="detection-results")
+parser.add_argument('-r', '--comp4_dir',         type=check, required=True)
 args = parser.parse_args()
 
 c4_dir=args.comp4_dir
-dr_dir=args.detection_results
+dr_dir=os.path.join(args.input_dir[0], args.detection_results)
 
 c4_files = glob(c4_dir+"/*")
 if len(c4_files)==0:

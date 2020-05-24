@@ -1,6 +1,8 @@
+#!/usr/bin/env python
 import sys
 import os
 import glob
+import argparse
 
 ## This script ensures same number of files in ground-truth and detection-results folder.
 ## When you encounter file not found error, it's usually because you have
@@ -9,14 +11,21 @@ import glob
 ## not in the intersection into a backup folder (backup_no_matches_found).
 ## This will retain only files that have the same name in both folders.
 
+def check(path):
+    if os.path.exists(path):return str(path)
+    return None
+parser = argparse.ArgumentParser()
+parser.add_argument('-db', '--input_dir', type=check, nargs=1, required=True)
+args = parser.parse_args()
+target=args.input_dir[0]
 
 # make sure that the cwd() in the beginning is the location of the python script (so that every path makes sense)
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 parent_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
 parent_path = os.path.abspath(os.path.join(parent_path, os.pardir))
-GT_PATH = os.path.join(parent_path, 'input','ground-truth')
-DR_PATH = os.path.join(parent_path, 'input','detection-results')
+GT_PATH = os.path.join(parent_path, target,'ground-truth')
+DR_PATH = os.path.join(parent_path, target,'detection-results')
 
 backup_folder = 'backup_no_matches_found' # must end without slash
 
