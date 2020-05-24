@@ -11,11 +11,24 @@ if [ $# -lt 1 ] || [ ! -e $1 ]; then
     echo Error!: need image files list such as 5k.txt, bye;exit
 elif [ $# -le 2 ]; then
     im_list=$(realpath $1)
-
 fi
+grep -i VOC $im_list > /dev/null
+if [ $? -eq 0 ];then
+    echo VOC Dataset may be.
+    sub1='s/JPEGImages/labels/'
+    cp scripts/extra/voc.names  scripts/extra/class_list.txt
+fi
+grep -i COCO $im_list > /dev/null
+if [ $? -eq 0 ];then
+    echo COCO Dataset may be.
+    sub1='s/images/labels/'
+    cp scripts/extra/coco.names scripts/extra/class_list.txt
+fi
+
+#cleanup
+./setup_new.sh
+
 # ground-truth files path list
-sub1='s/JPEGImages/labels/'
-sub1='s/images/labels/'
 sub2='s/.jpg/.txt/'
 if [ $# -le 1 ]; then
     # mapping default pattern and checking
@@ -60,7 +73,7 @@ if [ -d $gt_dir ] && [ -d $im_dir ]; then
     # Check existance and hard link images
     pushd $im_dir
     echo ln images ...
-    for i in $(cat ${im_list});do ln $i;done
+    for i in $(cat ${im_list});do ln -s $i;done
     echo Completion ${im_dir} by ${im_list}
     popd && pushd $gt_dir
     # copy groundtruth
