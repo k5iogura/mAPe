@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sys,os,re,argparse
 from glob import glob
+from shutil import rmtree
 
 def check(path):
     if os.path.exists(path):return str(path)
@@ -18,6 +19,11 @@ if len(c4_files)==0:
     print("Error: not found any files in %s"%c4_dir)
     sys.exit(-1)
 
+for f in glob(dr_dir+'/*'):
+    if os.path.isdir(f):
+        rmtree(f)
+    else:
+        os.remove(f)
 dn_id={}
 for f in c4_files:
     if not 'comp4_det_test_' in f:
