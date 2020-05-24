@@ -148,11 +148,11 @@ Put some files on the top of mAPe directory.
 
 - Import images and GroundTruth files into input/ directory.  
     ` $ ./convert_gt_yolo.sh 5k.txt gt.txt`  
-      see input/ground-truth and input/images directories.  
+    see input/ground-truth and input/images directories.  
 
 - Import inference result files into input/detection-results/ directory.  
-    ` $ ./convert_comp4_det.py -r darknet/results`
-      see input/detection-results directory.  
+    ` $ ./convert_comp4_det.py -r darknet/results`  
+    see input/detection-results directory.  
 
 ***Get mAP estimation***  
 - **Overall**  
