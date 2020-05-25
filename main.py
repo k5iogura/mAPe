@@ -700,7 +700,12 @@ with open(output_files_path + "/output.txt", 'w') as output_file:
          Draw plot
         """
         if draw_plot:
-            plt.plot(rec, prec, '-o')
+            try:
+                plt.plot(rec, prec, '-o')
+            except Exception as error:
+                #if draw_plot:print(error)
+                draw_plot = False
+                continue
             # add a new penultimate point to the list (mrec[-2], 0.0)
             # since the last line segment (and respective area) do not affect the AP value
             area_under_curve_x = mrec[:-1] + [mrec[-2]] + [mrec[-1]]
