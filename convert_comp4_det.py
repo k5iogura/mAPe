@@ -52,6 +52,7 @@ for i,key in enumerate(c4_classes):
 print('')
 
 # save result as FmtDR in detection-results directory
+matchs=0
 mismatchs=0
 for image_id in dn_id:
 
@@ -63,7 +64,10 @@ for image_id in dn_id:
         mismatchs+=1
         if mismatchs==1:print("Warning: check mismatch between ground-truth and result file")
         if mismatchs<10:print("{:4d}: {}".format(mismatchs,gt_file))
+        if mismatchs==9:print("    ...")
         continue
+    else:
+        matchs+=1
     with open(dr_file, "w") as f:
         objs=dn_id[image_id]
         for obj in objs:
@@ -71,5 +75,9 @@ for image_id in dn_id:
             class_name, score, lx, ly, rx, ry = str(class_name),float(score),float(lx),float(ly),float(rx),float(ry)
             f.write("{} {} {} {} {} {}\n".format(class_name, score, lx, ly, rx, ry))
 # endroll
+print("Info: matchs/mismatchs = {}/{}".format(matchs,mismatchs))
 if mismatchs>0:
     print("Warning:{} mismatchs found between ground_truth and result files".format(mismatchs))
+if matchs==0:
+    print("Faild:{} matchs!".format(matchs))
+
