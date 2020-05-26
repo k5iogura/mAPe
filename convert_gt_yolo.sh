@@ -108,7 +108,7 @@ if [ $gt_classesN -gt $nm_classesN ]; then
     echo "Error!: must be classes in GroundTruth files <= classes in name list, please check, bye";exit
 fi
 
-echo convertion category number to name strings
+echo converting category number to name strings ...
 python scripts/extra/convert_gt_yolo.py -id ${target}
 
 echo Searching Ground-Truth category names in ${gt_dir} ...
