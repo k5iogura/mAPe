@@ -17,17 +17,21 @@ fi
 DSTYPE=0
 grep -i VOC $im_list > /dev/null
 if [ $? -eq 0 ];then
-    echo VOC Dataset may be.
+    echo Asumming VOC Dataset  ...
     sub1='s/JPEGImages/labels/'
     cp scripts/extra/voc.names  scripts/extra/class_list.txt
     DSTYPE=$(($DSTYPE+1))
 fi
 grep -i COCO $im_list > /dev/null
 if [ $? -eq 0 ];then
-    echo COCO Dataset may be.
+    echo Asumming COCO Dataset ...
     sub1='s/images/labels/'
     cp scripts/extra/coco.names scripts/extra/class_list.txt
     DSTYPE=$(($DSTYPE+1))
+fi
+if [ $DSTYPE -eq 0 ] || [ $DSTYPE -ge 2 ] && [ $# -lt 2 ];then
+    echo "Fatal:Can not infer dataset type.\n      specify ground-truth file list as second arg" $DSTYPE
+    exit
 fi
 
 #cleanup
