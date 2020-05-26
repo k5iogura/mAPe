@@ -13,5 +13,6 @@ mkdir -p ${target}/detection-results
 mkdir -p ${target}/ground-truth
 mkdir -p ${target}/images-optional
 
-ls -la ${target}
+echo cleaned ${target}/ up!
+ls ${target}
 echo $target renewed!
