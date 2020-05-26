@@ -1,4 +1,4 @@
-# mAP (mean Average Precision)
+# mAPe (mean Average Precision) for VOC and COCO and Mix
 
 Original README [here](https://github.com/Cartucho/mAP/blob/master/README.md)  
 This repo. to estimate mAP of any darknet models.  
