@@ -3,12 +3,13 @@
 options="VCi:g:r:d:"
 usage () {
     echo Usage: $0 $options
-    echo \-C : COCO Category
-    echo \-V : VOC Category
-    echo \-i : image paths list for Dataset
-    echo \-g : ground truth paths list for Dataset
-    echo \-r : result files in the directory
-    echo \-d : DB directory for GroundTruth
+    echo \-i "file      :" image paths list for Dataset
+    echo \-r "directory :" result files in the directory
+    echo optionally
+    echo \-C : COCO Category\(optionally\)
+    echo \-V : VOC Category\(as default\)
+    echo \-g : ground truth paths list for Dataset\(optionally\)
+    echo \-d : DB directory for GroundTruth\(optionally\)
     exit
 }
 category="VOC"
