@@ -36,6 +36,22 @@ E.g. estimating COCO model with VOC categories.
 
 see input/ and output/ directories.  
 
+### How to easily estimate results of inference with VOC/COCO Categories  
+
+estimates result of inference with voc dataset groundtruth  
+` $ ./map.sh -i 2007_test.txt -r result-dsvoc-coco/`  
+E.g.
+    result-dsvoc-coco means directory including result file with VOC.  
+    2007_test.txt means image paths list for VOC 2007 test.  
+
+estimates result of inference with coco dataset groundtruth  
+` $ ./map.sh -i 5k.txt -r result-dscoco-coco/ -C`  
+    result-dscoco-coco means directory including result file with COCO.  
+    5k.txt means image paths list for COCO 5K test.  
+
+## Details of some scripts  
+If you want to know how to append new dataset without VOC, COCO in this repo. then read below.  
+
 ### About Rough Plan : How to estimate mAP of darknet models trained with Any Dataset  
 Rough plan of mAP estimation is,  
 * i.   prepare some list files for COCO or VOC below,  
