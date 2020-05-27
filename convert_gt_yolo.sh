@@ -36,6 +36,7 @@ fi
 
 #cleanup
 target="${im_list%.*}"
+target=$(basename $target)
 ./setup_new.sh ${target}
 
 # ground-truth files path list
