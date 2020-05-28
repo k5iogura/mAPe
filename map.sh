@@ -72,7 +72,7 @@ echo --- Import $result into $dbname with $category category
 ./convert_comp4_det.py -db $dbname -r $result
 
 echo --- Estimate mAP for $result with $category category
-if [ $category -eq "COCO" ];then
+if [ $category == "COCO" ];then
     python main.py -db $dbname
 else
     python main.py -db $dbname -i $(cat scripts/extra/voc-coco.ignore)
