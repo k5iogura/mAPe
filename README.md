@@ -38,24 +38,27 @@ see input/ and output/ directories.
 
 ### How to easily estimate results of inference with VOC/COCO Categories  
 
-estimates result of inference with groundtruth of voc dataset  
+estimates result of inference with groundtruth of VOC dataset  
 ` $ ./map.sh -i 2007_test.txt -r result-dsvoc-coco/`  
 E.g.  
     result-dsvoc-coco means directory including result file with VOC.  
     2007_test.txt means image paths list for VOC 2007 test.  
 
-estimates result of inference with coco dataset groundtruth  
+estimates result of inference with groundtruth of COCO dataset  
 ` $ ./map.sh -i 5k.txt -r result-dscoco-coco/ -C`  
     result-dscoco-coco means directory including result file with COCO.  
     5k.txt means image paths list for COCO 5K test.  
 
-to get mAP of darknet models,  
+makes results/ directory and get mAP of darknet models,  
 ```
  $ git clone https://github.com/pjreddie/darknet;cd darknet; make
- $ ./darknet detector valid voc.data voc-model.cfg voc-model.weights
+ $ ./darknet detector valid voc.data your-voc-model.cfg your-voc-model.weights
  $ git clone https://github.com/k5iogura/mAPe;cd mAPe
  $ ./map.sh -V -i 2007_test.txt -r ../results
 ```
+result/ directory is including result files of  
+inference with VOC Dataset  
+cfg and weights trained by VOC Dataset 
 
 ## Details of some scripts  
 If you want to know how to append new dataset without VOC, COCO in this repo. then read below.  
