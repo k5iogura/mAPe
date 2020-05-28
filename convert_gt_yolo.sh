@@ -41,6 +41,7 @@ target=$(basename $target)
 
 # ground-truth files path list
 sub2='s/.jpg/.txt/'
+not_found=0
 if [ $# -le 1 ]; then
     # mapping default pattern and checking
     gt_list=$(realpath $(echo $(dirname ${im_list})/gt_$(basename ${im_list})))
@@ -48,7 +49,12 @@ if [ $# -le 1 ]; then
     echo > $gt_list
     for i in $(cat ${im_list}|sed -e ${sub1} -e ${sub2});do
         if [ ! -e $i ];then
-            echo Error!: not found GT file path $i
+            not_found=$(($not_found+1))
+            if [ $not_found -le 10 ];then
+                echo Error!: not found GT file path $i
+            elif [ $not_found -eq 11 ];then
+                echo ...
+            fi
             continue
         fi
         echo $i >> $gt_list
@@ -60,6 +66,7 @@ elif [ ! -e $2 ]; then
 else
     gt_list=$(realpath $2)
 fi
+echo ${not_found} ground-truth files not found corresponding to results
 echo checking ground-truths ...
 for i in $(cat ${gt_list});do
     if [ ! -e $i ];then
