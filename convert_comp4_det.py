@@ -32,10 +32,11 @@ for f in glob(dr_dir+'/*'):
 # loading result files
 dn_id={}
 c4_classes=[]
+print(c4_files)
 for f in c4_files:
     if not 'comp4_det_test_' in f:
-        print("Error: Can not process file without comp4_det_test_*.txt type, bye")
-        sys.exit(-1)
+        print("Warning: Can not process file without comp4_det_test_*.txt type, skip"+f)
+        continue
     class_name = re.sub('comp4_det_test_','',os.path.splitext(os.path.basename(f))[0])
     class_name = re.sub(' ','_',class_name)
     #print(f,class_name)
