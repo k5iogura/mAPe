@@ -32,7 +32,6 @@ for f in glob(dr_dir+'/*'):
 # loading result files
 dn_id={}
 c4_classes=[]
-print(c4_files)
 for f in c4_files:
     if not 'comp4_det_test_' in f:
         print("Warning: Can not process file without comp4_det_test_*.txt type, skip"+f)
